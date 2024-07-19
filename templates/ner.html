@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NER</title>
+</head>
+<body>
+
+  <form action="/perform_ner" method="post">
+      <label>Type your text here</label><br>
+      <textarea name="ner_text"></textarea><br>
+      <input type="submit" value="Perform NER"><br>
+      <a href="/profile">Go Back</a>
+  </form>
+
+  {% if response %}
+  <h2>Entities:</h2>
+  <ul>
+    {% for i in response['entities']: %}
+    
+        <li>{{ i['name'] + " -> " + i['category'] }}</li>
+    {% endfor %}
+</ul>
+   
+  {% endif %}
+
+
+  
+ 
+  
+
+</body>
+</html>

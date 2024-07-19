@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+
+  <form action="/do_sentiment" method="post">
+      <label>Type your text here</label><br>
+      <textarea name="sentiment_text"></textarea><br>
+      <input type="submit" value="Perform Sentiment Analysis"><br>
+      <a href="/profile">Go Back</a>
+  </form>
+
+  {% if response %}
+  <h2>Sentiment Analysis:</h2>
+  <ul>
+      {% for sentiment, value in response.items() %}
+          <li>{{ sentiment }}: {{ value }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
+
+</body>
+</html>

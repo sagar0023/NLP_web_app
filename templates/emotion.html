@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emotion Prediction</title>
+</head>
+<body>
+
+  <form action="/perform_emotion" method="post">
+      <label>Type your text here</label><br>
+      <textarea name="emotion_text"></textarea><br>
+      <input type="submit" value="Do Emotion Prediction"><br>
+      <a href="/profile">Go Back</a>
+  </form>
+
+  {% if response %}
+  <h2>Emotion Prediction:</h2>
+  <ul>
+      {% for emotion, value in response.items() %}
+          <li>{{ emotion }}: {{ value }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
+
+</body>
+</html>
